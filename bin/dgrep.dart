@@ -56,8 +56,7 @@ void main(List<String> arguments) {
   FileSystemEntity.isDirectory(searchPath).then((bool isDir) {
     if (isDir) {
       final Directory startingDir = new Directory(searchPath);
-      startingDir.list(recursive:   argResults[RECURSIVE],
-                       followLinks: argResults[FOLLOW_LINKS]).listen((FileSystemEntity entity) {
+      startingDir.list(recursive: argResults[RECURSIVE], followLinks: argResults[FOLLOW_LINKS]).listen((FileSystemEntity entity) {
         if (entity is File) {
           searchFile(entity, searchTerms);
         }
